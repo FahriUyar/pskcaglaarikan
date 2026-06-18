@@ -57,15 +57,15 @@
     <!-- Schema.org / Structured Data (Google'da Resimli Çıkma İhtimalini Artırır) -->
     <script type="application/ld+json">
         {
-            "@context": "https://schema.org",
-            "@type": "Physician",
+            "@@context": "https://schema.org",
+            "@@type": "Physician",
             "name": "{{ $siteTitle }}",
             "image": "{{ $schemaImageUrl }}",
             "description": "{{ $siteDesc }}",
             "url": "{{ url()->current() }}",
             "telephone": "{{ App\Models\Setting::get('phone') }}",
             "address": {
-                "@type": "PostalAddress",
+                "@@type": "PostalAddress",
                 "streetAddress": "{{ App\Models\Setting::get('address') }}",
                 "addressCountry": "TR"
             }
