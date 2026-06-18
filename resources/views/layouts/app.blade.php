@@ -14,6 +14,8 @@
     $pageImage = $ogImage ?? asset('images/default-og.webp');
     $favicon = App\Models\Setting::get('favicon');
     $logo = App\Models\Setting::get('logo');
+    $aboutImage = App\Models\Setting::get('about_image');
+    $schemaImageUrl = $aboutImage ? Storage::url($aboutImage) : ($logo ? Storage::url($logo) : $pageImage);
     @endphp
 
     <!-- Dinamik Meta ve SEO Etiketleri -->
@@ -58,7 +60,7 @@
       "@context": "https://schema.org",
       "@type": "Physician",
       "name": "{{ $siteTitle }}",
-      "image": "{{ $logo ? Storage::url($logo) : $pageImage }}",
+      "image": "{{ $schemaImageUrl }}",
       "description": "{{ $siteDesc }}",
       "url": "{{ url()->current() }}",
       "telephone": "{{ App\Models\Setting::get('phone') }}",
