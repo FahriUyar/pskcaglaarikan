@@ -15,7 +15,7 @@
     $favicon = App\Models\Setting::get('favicon');
     $logo = App\Models\Setting::get('logo');
     $aboutImage = App\Models\Setting::get('about_image');
-    $schemaImageUrl = $aboutImage ? Storage::url($aboutImage) : ($logo ? Storage::url($logo) : $pageImage);
+    $schemaImageUrl = $aboutImage ? \Illuminate\Support\Facades\Storage::url($aboutImage) : ($logo ? \Illuminate\Support\Facades\Storage::url($logo) : $pageImage);
     @endphp
 
     <!-- Dinamik Meta ve SEO Etiketleri -->
@@ -51,25 +51,25 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-    
+
     @stack('styles')
 
     <!-- Schema.org / Structured Data (Google'da Resimli Çıkma İhtimalini Artırır) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Physician",
-      "name": "{{ $siteTitle }}",
-      "image": "{{ $schemaImageUrl }}",
-      "description": "{{ $siteDesc }}",
-      "url": "{{ url()->current() }}",
-      "telephone": "{{ App\Models\Setting::get('phone') }}",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "{{ App\Models\Setting::get('address') }}",
-        "addressCountry": "TR"
-      }
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "Physician",
+            "name": "{{ $siteTitle }}",
+            "image": "{{ $schemaImageUrl }}",
+            "description": "{{ $siteDesc }}",
+            "url": "{{ url()->current() }}",
+            "telephone": "{{ App\Models\Setting::get('phone') }}",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "{{ App\Models\Setting::get('address') }}",
+                "addressCountry": "TR"
+            }
+        }
     </script>
 </head>
 
