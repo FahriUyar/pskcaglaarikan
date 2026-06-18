@@ -1,0 +1,848 @@
+:root {
+    /* Özel Renk Paleti - Psikolog Teması */
+    --bs-primary: #8a9a86; /* Pastel Yeşil/Haki */
+    --bs-primary-rgb: 138, 154, 134;
+    --bs-secondary: #c5bba8; /* Toprak/Kum Tonu */
+    --bs-secondary-rgb: 197, 187, 168;
+
+    --theme-bg: #fdfcf9; /* Çok hafif krem/kırık beyaz */
+    --theme-text: #3c3c3a; /* Koyu füme/toprak siyahı */
+    --theme-text-light: #6a6a66; /* Daha açık füme */
+
+    /* Bootstrap değişkenlerini ezme */
+    --bs-body-bg: var(--theme-bg);
+    --bs-body-color: var(--theme-text);
+    --bs-heading-color: #2b2b29;
+    --bs-link-color: var(--bs-primary);
+    --bs-link-hover-color: #6d7b6a;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.7;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    color: var(--bs-heading-color);
+    letter-spacing: -0.02em;
+}
+
+/* Yumuşak köşeler ve gölgeler */
+.card,
+.btn,
+.alert,
+.badge {
+    border-radius: 12px;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+
+/* Buton Stilleri */
+.btn {
+    padding: 10px 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--bs-link-hover-color);
+    border-color: var(--bs-link-hover-color);
+    box-shadow: 0 8px 20px rgba(138, 154, 134, 0.3);
+}
+
+.btn-outline-primary {
+    color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--bs-primary);
+    color: #fff;
+}
+
+/* Boşluklar (Spacings) */
+.section-padding {
+    padding: 80px 0;
+}
+
+@media (min-width: 992px) {
+    .section-padding {
+        padding: 100px 0;
+    }
+}
+
+/* Navbar */
+.navbar {
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    background-color: rgba(253, 252, 249, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--bs-primary) !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--theme-text) !important;
+    transition: color 0.3s ease;
+    margin: 0 8px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--bs-primary) !important;
+}
+
+/* Footer */
+footer {
+    background-color: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-title {
+    color: var(--bs-heading-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    color: var(--theme-text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.footer-link:hover {
+    color: var(--bs-primary);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--theme-bg) 0%, #f4f2ea 100%);
+    border-radius: 0 0 40px 40px;
+}
+
+.text-muted-custom {
+    color: var(--theme-text-light) !important;
+}
+
+/* ==========================================================================
+   İÇ SAYFA STİLLERİ
+   ========================================================================== */
+
+/* Page Hero Banner — Tüm iç sayfalar için ortak hero alanı */
+.page-hero {
+    background: linear-gradient(
+        135deg,
+        var(--theme-bg) 0%,
+        #f0ede5 50%,
+        #e8e4da 100%
+    );
+    padding: 100px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse at 20% 50%,
+            rgba(138, 154, 134, 0.08) 0%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse at 80% 20%,
+            rgba(197, 187, 168, 0.06) 0%,
+            transparent 50%
+        );
+    pointer-events: none;
+}
+
+.page-hero .badge {
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.page-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.page-hero p {
+    max-width: 600px;
+    margin-inline: auto;
+    font-size: 1.1rem;
+}
+
+/* Breadcrumb */
+.breadcrumb-nav {
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.breadcrumb-nav ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    padding: 0;
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-nav li {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--theme-text-light);
+}
+
+.breadcrumb-nav li + li::before {
+    content: "›";
+    color: var(--bs-secondary);
+    font-size: 1.1em;
+    margin-right: 0.25rem;
+}
+
+.breadcrumb-nav a {
+    color: var(--bs-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-nav a:hover {
+    color: var(--bs-link-hover-color);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   HAKKIMDA SAYFASI
+   ========================================================================== */
+
+.about-hero {
+    background: linear-gradient(135deg, var(--theme-bg) 0%, #f0ede5 100%);
+    padding: 100px 0 0;
+    overflow: hidden;
+}
+
+.about-hero-image {
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.about-body {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--theme-text);
+}
+
+.about-body p {
+    margin-bottom: 1.5rem;
+}
+
+.about-body strong {
+    color: var(--bs-heading-color);
+    font-weight: 600;
+}
+
+/* Sidebar Kartları */
+.sidebar-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.sidebar-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+    transform: none;
+}
+
+.sidebar-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--bs-heading-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar-card h3 i {
+    color: var(--bs-primary);
+    font-size: 1.1rem;
+}
+
+.sidebar-card p {
+    color: var(--theme-text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.values-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.values-list li {
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    color: var(--theme-text);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.5;
+}
+
+.values-list li::before {
+    content: "•";
+    color: var(--bs-primary);
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+/* ==========================================================================
+   HİZMETLER SAYFASI
+   ========================================================================== */
+
+.service-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(138, 154, 134, 0.12);
+}
+
+.service-card .icon-wrap {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        rgba(138, 154, 134, 0.12) 0%,
+        rgba(138, 154, 134, 0.06) 100%
+    );
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    margin-inline: auto;
+    transition: background 0.3s ease;
+}
+
+.service-card:hover .icon-wrap {
+    background: linear-gradient(
+        135deg,
+        rgba(138, 154, 134, 0.2) 0%,
+        rgba(138, 154, 134, 0.1) 100%
+    );
+}
+
+.service-card .icon-wrap i {
+    font-size: 1.75rem;
+    color: var(--bs-primary);
+}
+
+.service-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.service-card p {
+    color: var(--theme-text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.service-card .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--bs-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 1.25rem;
+    transition:
+        gap 0.3s ease,
+        color 0.2s ease;
+}
+
+.service-card .card-link:hover {
+    gap: 0.75rem;
+    color: var(--bs-link-hover-color);
+}
+
+/* Hizmet Detay Sayfası */
+.service-detail-cover {
+    border-radius: 16px;
+    overflow: hidden;
+    max-height: 400px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.service-detail-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-detail-body {
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.service-detail-body h2,
+.service-detail-body h3,
+.service-detail-body h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.service-detail-body img {
+    border-radius: 12px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Diğer hizmetler sidebar */
+.other-service-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--theme-text);
+    transition: background 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.other-service-item:hover {
+    background: rgba(138, 154, 134, 0.06);
+    border-color: rgba(138, 154, 134, 0.1);
+    color: var(--bs-heading-color);
+}
+
+.other-service-item .icon-sm {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(138, 154, 134, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.other-service-item .icon-sm i {
+    color: var(--bs-primary);
+    font-size: 1.1rem;
+}
+
+.other-service-item span {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   SERTİFİKALAR SAYFASI
+   ========================================================================== */
+
+.certificate-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certificate-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+}
+
+.certificate-card .cert-image-wrap {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    cursor: pointer;
+    background: #f8f7f5;
+}
+
+.certificate-card .cert-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.certificate-card:hover .cert-image-wrap img {
+    transform: scale(1.05);
+}
+
+.certificate-card .cert-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(43, 43, 41, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.certificate-card:hover .cert-overlay {
+    background: rgba(43, 43, 41, 0.35);
+}
+
+.certificate-card .cert-overlay i {
+    font-size: 2rem;
+    color: #fff;
+    opacity: 0;
+    transform: scale(0.8);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.certificate-card:hover .cert-overlay i {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.certificate-card .cert-body {
+    padding: 1.25rem 1.5rem;
+}
+
+.certificate-card .cert-body h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--bs-heading-color);
+}
+
+.certificate-card .cert-body .cert-meta {
+    font-size: 0.8rem;
+    color: var(--theme-text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Lightbox — Native <dialog> */
+.cert-lightbox {
+    border: none;
+    background: transparent;
+    padding: 0;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: visible;
+}
+
+.cert-lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+}
+
+.cert-lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.cert-lightbox .lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-lightbox .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   İLETİŞİM SAYFASI
+   ========================================================================== */
+
+.contact-info-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.06);
+}
+
+.contact-info-card .info-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(
+        135deg,
+        rgba(138, 154, 134, 0.12) 0%,
+        rgba(138, 154, 134, 0.06) 100%
+    );
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.contact-info-card .info-icon i {
+    font-size: 1.5rem;
+    color: var(--bs-primary);
+}
+
+.contact-info-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info-card p,
+.contact-info-card a {
+    color: var(--theme-text-light);
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.contact-info-card a:hover {
+    color: var(--bs-primary);
+}
+
+/* İletişim Formu */
+.contact-form-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 767.98px) {
+    .contact-form-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+.contact-form-card .form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--bs-heading-color);
+    margin-bottom: 0.4rem;
+}
+
+.contact-form-card .form-control,
+.contact-form-card .form-control:focus {
+    border-radius: 10px;
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    background: var(--theme-bg);
+}
+
+.contact-form-card .form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 3px rgba(138, 154, 134, 0.15);
+    background: #fff;
+}
+
+.contact-form-card .form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.contact-form-card .invalid-feedback {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+/* Form başarı/hata mesajları */
+.alert-success-custom {
+    background: rgba(138, 154, 134, 0.1);
+    border: 1px solid rgba(138, 154, 134, 0.2);
+    color: #4a5d47;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+}
+
+.alert-success-custom i {
+    color: var(--bs-primary);
+}
+
+/* Google Maps embed */
+.map-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    display: block;
+}
+
+/* ==========================================================================
+   ANİMASYONLAR
+   ========================================================================== */
+
+/* Scroll ile beliren öğeler */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animasyon gecikmeleri */
+.delay-1 {
+    transition-delay: 0.1s;
+}
+.delay-2 {
+    transition-delay: 0.2s;
+}
+.delay-3 {
+    transition-delay: 0.3s;
+}
+.delay-4 {
+    transition-delay: 0.4s;
+}
+.delay-5 {
+    transition-delay: 0.5s;
+}
+.delay-6 {
+    transition-delay: 0.6s;
+}
+
+/* Instagram Kartları Hover Efekti */
+.instagram-card:hover img {
+    transform: scale(1.08);
+}
+.instagram-card:hover .instagram-overlay {
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   YARDIMCI SINIFLAR
+   ========================================================================== */
+
+.bg-soft-primary {
+    background: rgba(138, 154, 134, 0.06);
+}
+
+/* Form yıldız işareti */
+.required-star {
+    color: #c0392b;
+    font-weight: 400;
+}
+
+/* Resim yer tutucu */
+.image-placeholder {
+    background: linear-gradient(135deg, #f8f7f5 0%, #f0ede5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-placeholder i {
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.08);
+}
