@@ -51,6 +51,24 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     
     @stack('styles')
+
+    <!-- Schema.org / Structured Data (Google'da Resimli Çıkma İhtimalini Artırır) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "{{ $siteTitle }}",
+      "image": "{{ $logo ? Storage::url($logo) : $pageImage }}",
+      "description": "{{ $siteDesc }}",
+      "url": "{{ url()->current() }}",
+      "telephone": "{{ App\Models\Setting::get('phone') }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ App\Models\Setting::get('address') }}",
+        "addressCountry": "TR"
+      }
+    }
+    </script>
 </head>
 
 <body>
